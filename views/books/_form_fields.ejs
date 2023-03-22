@@ -8,9 +8,9 @@
   <select name="author">
     <% authors.forEach(author=> { %>
       <% if (author.id===book.author) { %>
-        <option selected label="<%= author.name %>" value="<%= author.id %>"></option>
-        <% } else { %>
-          <option label="<%= author.name %>" value="<%= author.id %>"></option>
+        <option selected label="<%= author.name %>" value="<%= author.id %>">
+          <% } else { %>
+        <option label="<%= author.name %>" value="<%= author.id %>">
           <% } %>
             <% }) %>
   </select>
