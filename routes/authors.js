@@ -64,7 +64,6 @@ router.get('/:id/edit', async (req, res) => {
 });
 
 // Update author Router
-
 router.put('/:id', async (req, res) => {
   let author;
 

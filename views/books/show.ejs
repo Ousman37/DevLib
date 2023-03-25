@@ -1,0 +1,53 @@
+<% if (book) { %>
+  <h2>
+    <%= book.title %>
+  </h2>
+  <% if (book.coverImage) { %>
+    <img height="150" width="100"
+      src="data:<%= book.coverImageType %>;base64,<%= book.coverImage.toString('base64') %>">
+    <% } else { %>
+      <img height="150" width="100" src="/images/default_book_cover.png">
+      <% } %>
+        <div>
+          Author:
+          <% if (book.author) { %>
+            <a href="/authors/<%= book.author.id %>">
+              <%= book.author.name %>
+            </a>
+            <% } else { %>
+              Unknown
+              <% } %>
+        </div>
+        <div>
+          Publish Date:
+          <% if (book.publishDate) { %>
+            <%= book.publishDate.toDateString() %>
+              <% } else { %>
+                Unknown
+                <% } %>
+        </div>
+        <div>
+          Page Count:
+          <% if (book.pageCount) { %>
+            <%= book.pageCount %>
+              <% } else { %>
+                Unknown
+                <% } %>
+        </div>
+        <div>
+          Description:
+          <% if (book.description) { %>
+            <%= book.description %>
+              <% } else { %>
+                Unknown
+                <% } %>
+        </div>
+        <div>
+          <a href="/books/<%= book.id %>/edit">Edit</a>
+
+          <%- include("../partials/deleteForm", {url: `/books/${book.id}?_method=DELETE`}) %>
+            <% if (book.author) { %>
+              <a href="/authors/<%= book.author.id %>">View Author</a>
+              <% } %>
+        </div>
+        <% } %>
