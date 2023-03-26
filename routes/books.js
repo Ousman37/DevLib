@@ -100,7 +100,6 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-
 // Delete Book Route
 router.delete('/:id', async (req, res) => {
   let book;
